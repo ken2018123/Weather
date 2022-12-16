@@ -1,0 +1,860 @@
+
+
+
+<!--
+・search.png(虫眼鏡アイコン)
+・japanmap.png(日本地図)は
+フリー素材を使用しました。
+その他の画像は自分で描きました-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>天気検索</title>
+  <script src="loadWeather.js"></script>
+  <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!--ヘッダー部分を作成-->
+  <div class=line>
+</div>
+<header>
+  <h2>天気検索</h2>
+</header>
+<nav>
+            <!--ナビゲーション部分を作成-->
+            <ul>
+                <li><a href="#place1"class="under_delete">地図検索</a></li>
+                <li><a href="#place2"class="under_delete">地名検索</a></li>
+                <li><a href="#place3"class="under_delete">5日間の天気</a></li>
+                <li class="under_delete">&nbsp;</li><!--空欄をいれて左側の線をだす-->
+
+            </ul>
+
+        </nav>
+
+  <div class="margin-left">
+    <div class="box11">
+    <div class="yokonarabi">
+      <p class="searchtext">
+<span id="place1">
+        <img src="img/search.png">
+</span>
+        右の地図をクリックして検索できます
+
+      </p>
+      <!--これは地図検索-->
+      <img src="img/japanmap.png" usemap="#image-map">
+<!--hrefのリンクは消し忘れないように!
+coordsでクリック出来る範囲を指定、その範囲のidを指定して
+選択範囲(id)をクリックしたらJavascriptのonclickイベントでurlを読みこむ-->
+    <map name="image-map">
+    <area target="" id="hokkaido"alt="北海道" title="北海道" coords="446,30,445,138,488,140,488,125,593,124,591,28" shape="poly">
+    <area target="" id="aomori"alt="青森" title="青森"  coords="445,155,446,185,561,186,563,155" shape="poly">
+    <area target="" id="akita" alt="秋田" title="秋田" coords="447,190,446,233,501,232,501,192" shape="poly">
+    <area target="" id="iwate" alt="岩手" title="岩手" coords="504,193,504,232,560,233,559,194" shape="poly">
+    <area target="" id="yamagata" alt="山形" title="山形" coords="446,237,446,267,467,267,468,276,502,277,501,237" shape="poly">
+    <area target="" id="miyagi" alt="宮城" title="宮城" coords="504,236,505,279,563,278,560,236" shape="poly">
+    <area target="" id="fukushima" alt="福島" title="福島" coords="468,281,469,321,561,320,560,281" shape="poly">
+    <area target="" id="ibaraki" alt="茨城" title="茨城" coords="533,324,532,380,560,379,559,325" shape="poly">
+    <area target="" id="chiba" alt="千葉" title="千葉" coords="533,383,533,486,562,484,559,384" shape="poly">
+    <area target="" id="tochigi" alt="栃木" title="栃木" coords="489,324,489,365,530,365,530,324" shape="poly">
+    <area target="" id="gunma" alt="群馬" title="群馬" coords="444,324,445,367,487,368,486,324" shape="poly">
+    <area target="" id="saitama" alt="埼玉" title="埼玉" coords="444,369,444,403,531,403,530,369" shape="poly">
+    <area target="" id="tokyo" alt="東京" title="東京" coords="466,405,467,440,512,440,513,428,530,427,530,406" shape="poly">
+    <area target="" id="kanagawa" alt="神奈川" title="神奈川" coords="453,443,453,463,465,464,467,485,512,484,513,443" shape="poly">
+    <area target="" id="niigata" alt="新潟" title="新潟" coords="446,269,446,279,410,281,410,321,466,322,465,269" shape="poly">
+    <area target="" id="toyama" alt="富山" title="富山" coords="364,280,364,322,408,322,407,281" shape="poly">
+    <area target="" id="ishikawa" alt="石川" title="石川" coords="332,265,333,321,364,323,362,265" shape="poly">
+    <area target="" id="nagano" alt="長野" title="長野" coords="395,325,394,440,417,440,418,402,440,402,441,324" shape="poly">
+    <area target="" id="yamanashi" alt="山梨" title="山梨" coords="422,407,422,440,464,440,462,407" shape="poly">
+    <area target="" id="shizuoka" alt="静岡" title="静岡"  coords="408,444,408,485,462,485,461,467,451,466,451,443" shape="poly">
+    <area target="" id="aichi" alt="愛知" title="愛知"  coords="363,443,363,485,406,485,405,444" shape="poly">
+    <area target="" id="gifu" alt="岐阜" title="岐阜"  coords="364,325,364,441,391,441,391,325" shape="poly">
+    <area target="" id="fukui" alt="福井" title="福井"  coords="334,325,334,337,305,338,304,365,360,365,360,325" shape="poly">
+    <area target="" id="shiga" alt="滋賀" title="滋賀"  coords="334,368,334,411,361,412,361,368" shape="poly">
+    <area target="" id="mie" alt="三重" title="三重"  coords="334,413,334,512,360,513,360,415" shape="poly">
+    <area target="" id="kyoto" alt="京都" title="京都"  coords="275,339,275,410,331,411,331,369,302,368,303,338" shape="poly">
+    <area target="" id="nara" alt="奈良" title="奈良"  coords="304,413,304,478,332,479,331,414" shape="poly">
+    <area target="" id="osaka" alt="大阪" title="大阪"  coords="273,413,273,460,302,460,302,413" shape="poly">
+    <area target="" id="wakayama" alt="和歌山" title="和歌山"  coords="273,464,275,511,331,512,331,482,302,481,300,464" shape="poly">
+    <area target="" id="hyogo" alt="兵庫" title="兵庫"  coords="245,339,244,424,270,425,271,339" shape="poly">
+    <area target="" id="tottori" alt="鳥取" title="鳥取"  coords="214,339,215,381,242,381,242,339" shape="poly">
+    <area target="" id="okayama" alt="岡山" title="岡山"  coords="214,384,214,425,242,425,242,384" shape="poly">
+    <area target="" id="shimane" alt="島根" title="島根"  coords="186,339,184,380,212,379,212,339" shape="poly">
+    <area target="" id="hiroshima" alt="広島" title="広島"  coords="183,384,183,425,211,424,211,384" shape="poly">
+    <area target="" id="yamaguchi" alt="山口" title="山口"  coords="154,339,154,425,181,425,182,339" shape="poly">
+    <area target="" id="kagawa" alt="香川" title="香川"  coords="208,440,208,475,260,475,259,440" shape="poly">
+    <area target="" id="tokushima" alt="徳島" title="徳島"  coords="208,478,208,512,260,513,259,478" shape="poly">
+    <area target="" id="ehime" alt="愛媛" title="愛媛"  coords="155,440,155,476,206,476,206,441" shape="poly">
+    <!--高知はq=kochiにするとコーチになり、q=kotiにするとKotiになります...-->
+    <area target="" id="koti" alt="高知" title="高知"  coords="154,478,154,511,205,512,205,478" shape="poly">
+    <area target="" id="oita" alt="大分" title="大分"  coords="111,370,111,419,140,418,140,370" shape="poly">
+    <area target="" id="fukuoka" alt="福岡" title="福岡"  coords="67,339,67,402,108,403,108,367,141,367,141,339" shape="poly">
+    <area target="" id="miyazaki" alt="宮崎" title="宮崎"  coords="112,421,111,469,140,470,140,420" shape="poly">
+    <area target="" id="kumamoto" alt="熊本" title="熊本"  coords="67,406,67,469,109,470,109,405" shape="poly">
+    <area target="" id="kagoshima" alt="鹿児島" title="鹿児島"  coords="67,472,67,511,140,513,139,471" shape="poly">
+    <area target="" id="saga" alt="佐賀" title="佐賀"  coords="37,338,37,402,65,404,65,338" shape="poly">
+    <area target="" id="nagasaki" alt="長崎" title="長崎"  coords="6,339,7,402,34,404,35,339" shape="poly">
+    <area target="" id="okinawa" alt="沖縄" title="沖縄"  coords="67,527,67,569,95,570,95,527" shape="poly">
+</map>
+
+
+    </div>
+  </div>
+  </div>
+
+<!--これは虫眼鏡と文字-->
+<div class="margin-left">
+  <div class="yokonarabi">
+  <p class="searchtext">
+  <span id="place2">
+    <img src="img/search.png">
+  </span>
+    地名を半角英数で入力してください
+  </p>
+</div>
+
+<!--これは入力フォーム-->
+  <form id="frm">
+
+    <input id="input" type="text" placeholder="地名を入力" class="box">
+    <input id="submit" type="button" value="submit" class="submitbox">
+  </form>
+<!--これは地図検索-->
+<!-- Image Map Generated by http://www.image-map.net/ -->
+<!--
+<div class="margin-left">
+<img src="img/nihonchizu.png" usemap="#image-map">
+
+<map name="image-map">
+    <area id="hokkaido" target="" alt="北海道" title="北海道"coords="626,37,625,194,683,197,683,176,831,172,827,38" shape="poly">
+</map>
+</div>
+-->
+
+  <!--ここに日付表示-->
+
+  <div class="leftline">
+    <span id="place3">
+    <h3 id="date01"></h3>
+  </span>
+  </div>
+</div>
+
+
+<div class="margin-left-table">
+  <table>
+	<tbody>
+		<tr>
+			<td colspan="2">時刻</td>
+			<td id="hour-0"></td>
+			<td id="hour-1"></td>
+			<td id="hour-2"></td>
+			<td id="hour-3"></td>
+			<td id="hour-4"></td>
+			<td id="hour-5"></td>
+			<td id="hour-6"></td>
+			<td id="hour-7"></td>
+		</tr>
+		<tr>
+			<td colspan="2">天気</td>
+			<td><img id="weather-0"></td>
+			<td><img id="weather-1"></td>
+      <td><img id="weather-2"></td>
+      <td><img id="weather-3"></td>
+      <td><img id="weather-4"></td>
+      <td><img id="weather-5"></td>
+      <td><img id="weather-6"></td>
+      <td><img id="weather-7"></td>
+		</tr>
+		<tr>
+			<td colspan="2">気温</td>
+			<td id="temp-0"></td>
+			<td id="temp-1"></td>
+			<td id="temp-2"></td>
+			<td id="temp-3"></td>
+			<td id="temp-4"></td>
+			<td id="temp-5"></td>
+			<td id="temp-6"></td>
+			<td id="temp-7"></td>
+		</tr>
+    <!--気温と最高気温と最低気温の差があまりないのは、取得ミスではなく、
+  openweathermapのデータによるものです。-->
+    <tr>
+      <td colspan="2">最高</td>
+      <td id="high-0"></td>
+      <td id="high-1"></td>
+      <td id="high-2"></td>
+      <td id="high-3"></td>
+      <td id="high-4"></td>
+      <td id="high-5"></td>
+      <td id="high-6"></td>
+      <td id="high-7"></td>
+    </tr>
+    <tr>
+      <td colspan="2">最低</td>
+      <td id="low-0"></td>
+      <td id="low-1"></td>
+      <td id="low-2"></td>
+      <td id="low-3"></td>
+      <td id="low-4"></td>
+      <td id="low-5"></td>
+      <td id="low-6"></td>
+      <td id="low-7"></td>
+    </tr>
+    <tr>
+			<td colspan="2">熱中症</td>
+			<td><img id="icon-0"></td>
+			<td><img id="icon-1"></td>
+			<td><img id="icon-2"></td>
+			<td><img id="icon-3"></td>
+			<td><img id="icon-4"></td>
+			<td><img id="icon-5"></td>
+			<td><img id="icon-6"></td>
+			<td><img id="icon-7"></td>
+		</tr>
+    <tr>
+			<td colspan="2">風向</td>
+			<td id="deg-0"></td>
+			<td id="deg-1"></td>
+			<td id="deg-2"></td>
+			<td id="deg-3"></td>
+			<td id="deg-4"></td>
+			<td id="deg-5"></td>
+			<td id="deg-6"></td>
+			<td id="deg-7"></td>
+		</tr>
+		<tr>
+			<td colspan="2">風速</td>
+			<td id="wind-0"></td>
+			<td id="wind-1"></td>
+			<td id="wind-2"></td>
+			<td id="wind-3"></td>
+			<td id="wind-4"></td>
+			<td id="wind-5"></td>
+			<td id="wind-6"></td>
+			<td id="wind-7"></td>
+		</tr>
+    <tr>
+			<td colspan="2" rowspan="2">湿度</td>
+			<td><img id="humidity-icon-0"></td>
+			<td><img id="humidity-icon-1"></td>
+			<td><img id="humidity-icon-2"></td>
+			<td><img id="humidity-icon-3"></td>
+			<td><img id="humidity-icon-4"></td>
+			<td><img id="humidity-icon-5"></td>
+			<td><img id="humidity-icon-6"></td>
+			<td><img id="humidity-icon-7"></td>
+		</tr>
+    <tr>
+			<td id="humidity-0"></td>
+			<td id="humidity-1"></td>
+			<td id="humidity-2"></td>
+			<td id="humidity-3"></td>
+			<td id="humidity-4"></td>
+			<td id="humidity-5"></td>
+			<td id="humidity-6"></td>
+			<td id="humidity-7"></td>
+		</tr>
+	</tbody>
+</table>
+<div class="leftline3">
+  <h3 id="date02"></h3>
+</div>
+<table>
+	<tbody>
+		<tr>
+			<td colspan="2">時刻</td>
+      <td id="hour-8"></td>
+			<td id="hour-9"></td>
+			<td id="hour-10"></td>
+			<td id="hour-11"></td>
+			<td id="hour-12"></td>
+			<td id="hour-13"></td>
+			<td id="hour-14"></td>
+			<td id="hour-15"></td>
+		</tr>
+		<tr>
+			<td colspan="2">天気</td>
+      <td><img id="weather-8"></td>
+			<td><img id="weather-9"></td>
+      <td><img id="weather-10"></td>
+      <td><img id="weather-11"></td>
+      <td><img id="weather-12"></td>
+      <td><img id="weather-13"></td>
+      <td><img id="weather-14"></td>
+      <td><img id="weather-15"></td>
+		</tr>
+		<tr>
+			<td colspan="2">気温</td>
+      <td id="temp-8"></td>
+			<td id="temp-9"></td>
+			<td id="temp-10"></td>
+			<td id="temp-11"></td>
+			<td id="temp-12"></td>
+			<td id="temp-13"></td>
+			<td id="temp-14"></td>
+			<td id="temp-15"></td>
+		</tr>
+    <tr>
+      <td colspan="2">最高</td>
+      <td id="high-8"></td>
+      <td id="high-9"></td>
+      <td id="high-10"></td>
+      <td id="high-11"></td>
+      <td id="high-12"></td>
+      <td id="high-13"></td>
+      <td id="high-14"></td>
+      <td id="high-15"></td>
+    </tr>
+    <tr>
+      <td colspan="2">最低</td>
+      <td id="low-8"></td>
+      <td id="low-9"></td>
+      <td id="low-10"></td>
+      <td id="low-11"></td>
+      <td id="low-12"></td>
+      <td id="low-13"></td>
+      <td id="low-14"></td>
+      <td id="low-15"></td>
+    </tr>
+    <tr>
+      <td colspan="2">熱中症</td>
+      <td><img  id="icon-8"></td>
+      <td><img  id="icon-9"></td>
+      <td><img  id="icon-10"></td>
+      <td><img  id="icon-11"></td>
+      <td><img  id="icon-12"></td>
+      <td><img  id="icon-13"></td>
+      <td><img  id="icon-14"></td>
+      <td><img  id="icon-15"></td>
+    </tr>
+    <tr>
+      <td colspan="2">風向</td>
+      <td id="deg-8"></td>
+      <td id="deg-9"></td>
+      <td id="deg-10"></td>
+      <td id="deg-11"></td>
+      <td id="deg-12"></td>
+      <td id="deg-13"></td>
+      <td id="deg-14"></td>
+      <td id="deg-15"></td>
+    </tr>
+		<tr>
+			<td colspan="2">風速</td>
+      <td id="wind-8"></td>
+			<td id="wind-9"></td>
+			<td id="wind-10"></td>
+			<td id="wind-11"></td>
+			<td id="wind-12"></td>
+			<td id="wind-13"></td>
+			<td id="wind-14"></td>
+			<td id="wind-15"></td>
+		</tr>
+    <tr>
+			<td colspan="2" rowspan="2">湿度</td>
+			<td><img id="humidity-icon-8"></td>
+			<td><img id="humidity-icon-9"></td>
+			<td><img id="humidity-icon-10"></td>
+			<td><img id="humidity-icon-11"></td>
+			<td><img id="humidity-icon-12"></td>
+			<td><img id="humidity-icon-13"></td>
+			<td><img id="humidity-icon-14"></td>
+			<td><img id="humidity-icon-15"></td>
+		</tr>
+    <tr>
+			<td id="humidity-8"></td>
+			<td id="humidity-9"></td>
+			<td id="humidity-10"></td>
+			<td id="humidity-11"></td>
+			<td id="humidity-12"></td>
+			<td id="humidity-13"></td>
+			<td id="humidity-14"></td>
+			<td id="humidity-15"></td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="leftline3">
+  <h3 id="date03"></h3>
+</div>
+
+<table>
+<tbody>
+  <tr>
+    <td colspan="2">時刻</td>
+    <td id="hour-16"></td>
+    <td id="hour-17"></td>
+    <td id="hour-18"></td>
+    <td id="hour-19"></td>
+    <td id="hour-20"></td>
+    <td id="hour-21"></td>
+    <td id="hour-22"></td>
+    <td id="hour-23"></td>
+  </tr>
+  <tr>
+    <td colspan="2">天気</td>
+    <td><img id="weather-16"></td>
+    <td><img id="weather-17"></td>
+    <td><img id="weather-18"></td>
+    <td><img id="weather-19"></td>
+    <td><img id="weather-20"></td>
+    <td><img id="weather-21"></td>
+    <td><img id="weather-22"></td>
+    <td><img id="weather-23"></td>
+  </tr>
+  <tr>
+    <td colspan="2">気温</td>
+    <td id="temp-16"></td>
+    <td id="temp-17"></td>
+    <td id="temp-18"></td>
+    <td id="temp-19"></td>
+    <td id="temp-20"></td>
+    <td id="temp-21"></td>
+    <td id="temp-22"></td>
+    <td id="temp-23"></td>
+  </tr>
+  <tr>
+    <td colspan="2">最高</td>
+    <td id="high-16"></td>
+    <td id="high-17"></td>
+    <td id="high-18"></td>
+    <td id="high-19"></td>
+    <td id="high-20"></td>
+    <td id="high-21"></td>
+    <td id="high-22"></td>
+    <td id="high-23"></td>
+  </tr>
+  <tr>
+    <td colspan="2">最低</td>
+    <td id="low-16"></td>
+    <td id="low-17"></td>
+    <td id="low-18"></td>
+    <td id="low-19"></td>
+    <td id="low-20"></td>
+    <td id="low-21"></td>
+    <td id="low-22"></td>
+    <td id="low-23"></td>
+  </tr>
+  <tr>
+    <td colspan="2">熱中症</td>
+    <td><img id="icon-16"></td>
+    <td><img id="icon-17"></td>
+    <td><img id="icon-18"></td>
+    <td><img id="icon-19"></td>
+    <td><img id="icon-20"></td>
+    <td><img id="icon-21"></td>
+    <td><img id="icon-22"></td>
+    <td><img id="icon-23"></td>
+  </tr>
+  <tr>
+    <td colspan="2">風向</td>
+    <td id="deg-16"></td>
+    <td id="deg-17"></td>
+    <td id="deg-18"></td>
+    <td id="deg-19"></td>
+    <td id="deg-20"></td>
+    <td id="deg-21"></td>
+    <td id="deg-22"></td>
+    <td id="deg-23"></td>
+  </tr>
+  <tr>
+    <td colspan="2">風速</td>
+    <td id="wind-16"></td>
+    <td id="wind-17"></td>
+    <td id="wind-18"></td>
+    <td id="wind-19"></td>
+    <td id="wind-20"></td>
+    <td id="wind-21"></td>
+    <td id="wind-22"></td>
+    <td id="wind-23"></td>
+  </tr>
+  <tr>
+    <td colspan="2" rowspan="2">湿度</td>
+    <td><img id="humidity-icon-16"></td>
+    <td><img id="humidity-icon-17"></td>
+    <td><img id="humidity-icon-18"></td>
+    <td><img id="humidity-icon-19"></td>
+    <td><img id="humidity-icon-20"></td>
+    <td><img id="humidity-icon-21"></td>
+    <td><img id="humidity-icon-22"></td>
+    <td><img id="humidity-icon-23"></td>
+  </tr>
+  <tr>
+    <td id="humidity-16"></td>
+    <td id="humidity-17"></td>
+    <td id="humidity-18"></td>
+    <td id="humidity-19"></td>
+    <td id="humidity-20"></td>
+    <td id="humidity-21"></td>
+    <td id="humidity-22"></td>
+    <td id="humidity-23"></td>
+  </tr>
+</tbody>
+</table>
+
+<div class="leftline3">
+  <h3 id="date04"></h3>
+</div>
+
+<table>
+<tbody>
+  <tr>
+    <td colspan="2">時刻</td>
+    <td id="hour-24"></td>
+    <td id="hour-25"></td>
+    <td id="hour-26"></td>
+    <td id="hour-27"></td>
+    <td id="hour-28"></td>
+    <td id="hour-29"></td>
+    <td id="hour-30"></td>
+    <td id="hour-31"></td>
+  </tr>
+  <tr>
+    <td colspan="2">天気</td>
+    <td><img id="weather-24"></td>
+    <td><img id="weather-25"></td>
+    <td><img id="weather-26"></td>
+    <td><img id="weather-27"></td>
+    <td><img id="weather-28"></td>
+    <td><img id="weather-29"></td>
+    <td><img id="weather-30"></td>
+    <td><img id="weather-31"></td>
+  </tr>
+  <tr>
+    <td colspan="2">気温</td>
+    <td id="temp-24"></td>
+    <td id="temp-25"></td>
+    <td id="temp-26"></td>
+    <td id="temp-27"></td>
+    <td id="temp-28"></td>
+    <td id="temp-29"></td>
+    <td id="temp-30"></td>
+    <td id="temp-31"></td>
+  </tr>
+  <tr>
+    <td colspan="2">最高</td>
+    <td id="high-24"></td>
+    <td id="high-25"></td>
+    <td id="high-26"></td>
+    <td id="high-27"></td>
+    <td id="high-28"></td>
+    <td id="high-29"></td>
+    <td id="high-30"></td>
+    <td id="high-31"></td>
+  </tr>
+  <tr>
+    <td colspan="2">最低</td>
+    <td id="low-24"></td>
+    <td id="low-25"></td>
+    <td id="low-26"></td>
+    <td id="low-27"></td>
+    <td id="low-28"></td>
+    <td id="low-29"></td>
+    <td id="low-30"></td>
+    <td id="low-31"></td>
+  </tr>
+  <tr>
+    <td colspan="2">熱中症</td>
+    <td><img  id="icon-24"></td>
+    <td><img  id="icon-25"></td>
+    <td><img  id="icon-26"></td>
+    <td><img  id="icon-27"></td>
+    <td><img  id="icon-28"></td>
+    <td><img  id="icon-29"></td>
+    <td><img  id="icon-30"></td>
+    <td><img  id="icon-31"></td>
+  </tr>
+  <tr>
+    <td colspan="2">風向</td>
+    <td id="deg-24"></td>
+    <td id="deg-25"></td>
+    <td id="deg-26"></td>
+    <td id="deg-27"></td>
+    <td id="deg-28"></td>
+    <td id="deg-29"></td>
+    <td id="deg-30"></td>
+    <td id="deg-31"></td>
+  </tr>
+  <tr>
+    <td colspan="2">風速</td>
+    <td id="wind-24"></td>
+    <td id="wind-25"></td>
+    <td id="wind-26"></td>
+    <td id="wind-27"></td>
+    <td id="wind-28"></td>
+    <td id="wind-29"></td>
+    <td id="wind-30"></td>
+    <td id="wind-31"></td>
+  </tr>
+  <tr>
+    <td colspan="2" rowspan="2">湿度</td>
+    <td><img id="humidity-icon-24"></td>
+    <td><img id="humidity-icon-25"></td>
+    <td><img id="humidity-icon-26"></td>
+    <td><img id="humidity-icon-27"></td>
+    <td><img id="humidity-icon-28"></td>
+    <td><img id="humidity-icon-29"></td>
+    <td><img id="humidity-icon-30"></td>
+    <td><img id="humidity-icon-31"></td>
+  </tr>
+  <tr>
+    <td id="humidity-24"></td>
+    <td id="humidity-25"></td>
+    <td id="humidity-26"></td>
+    <td id="humidity-27"></td>
+    <td id="humidity-28"></td>
+    <td id="humidity-29"></td>
+    <td id="humidity-30"></td>
+    <td id="humidity-31"></td>
+  </tr>
+</tbody>
+</table>
+
+<div class="leftline3">
+  <h3 id="date05"></h3>
+</div>
+
+<table>
+<tbody>
+  <tr>
+    <td colspan="2">時刻</td>
+    <td id="hour-32"></td>
+    <td id="hour-33"></td>
+    <td id="hour-34"></td>
+    <td id="hour-35"></td>
+    <td id="hour-36"></td>
+    <td id="hour-37"></td>
+    <td id="hour-38"></td>
+    <td id="hour-39"></td>
+  </tr>
+  <tr>
+    <td colspan="2">天気</td>
+    <td><img id="weather-32"></td>
+    <td><img id="weather-33"></td>
+    <td><img id="weather-34"></td>
+    <td><img id="weather-35"></td>
+    <td><img id="weather-36"></td>
+    <td><img id="weather-37"></td>
+    <td><img id="weather-38"></td>
+    <td><img id="weather-39"></td>
+  </tr>
+  <tr>
+    <td colspan="2">気温</td>
+    <td id="temp-32"></td>
+    <td id="temp-33"></td>
+    <td id="temp-34"></td>
+    <td id="temp-35"></td>
+    <td id="temp-36"></td>
+    <td id="temp-37"></td>
+    <td id="temp-38"></td>
+    <td id="temp-39"></td>
+  </tr>
+  <tr>
+    <td colspan="2">熱中症</td>
+    <td><img id="icon-32"></td>
+    <td><img id="icon-33"></td>
+    <td><img id="icon-34"></td>
+    <td><img id="icon-35"></td>
+    <td><img id="icon-36"></td>
+    <td><img id="icon-37"></td>
+    <td><img id="icon-38"></td>
+    <td><img id="icon-39"></td>
+  </tr>
+  <tr>
+    <td colspan="2">最高</td>
+    <td id="high-32"></td>
+    <td id="high-33"></td>
+    <td id="high-34"></td>
+    <td id="high-35"></td>
+    <td id="high-36"></td>
+    <td id="high-37"></td>
+    <td id="high-38"></td>
+    <td id="high-39"></td>
+  </tr>
+  <tr>
+    <td colspan="2">最低</td>
+    <td id="low-32"></td>
+    <td id="low-33"></td>
+    <td id="low-34"></td>
+    <td id="low-35"></td>
+    <td id="low-36"></td>
+    <td id="low-37"></td>
+    <td id="low-38"></td>
+    <td id="low-39"></td>
+  </tr>
+  <tr>
+    <td colspan="2">風向</td>
+    <td id="deg-32"></td>
+    <td id="deg-33"></td>
+    <td id="deg-34"></td>
+    <td id="deg-35"></td>
+    <td id="deg-36"></td>
+    <td id="deg-37"></td>
+    <td id="deg-38"></td>
+    <td id="deg-39"></td>
+  </tr>
+  <tr>
+    <td colspan="2">風速</td>
+    <td id="wind-32"></td>
+    <td id="wind-33"></td>
+    <td id="wind-34"></td>
+    <td id="wind-35"></td>
+    <td id="wind-36"></td>
+    <td id="wind-37"></td>
+    <td id="wind-38"></td>
+    <td id="wind-39"></td>
+  </tr>
+  <tr>
+    <td colspan="2" rowspan="2">湿度</td>
+    <td><img id="humidity-icon-32"></td>
+    <td><img id="humidity-icon-33"></td>
+    <td><img id="humidity-icon-34"></td>
+    <td><img id="humidity-icon-35"></td>
+    <td><img id="humidity-icon-36"></td>
+    <td><img id="humidity-icon-37"></td>
+    <td><img id="humidity-icon-38"></td>
+    <td><img id="humidity-icon-39"></td>
+  </tr>
+  <tr>
+    <td id="humidity-32"></td>
+    <td id="humidity-33"></td>
+    <td id="humidity-34"></td>
+    <td id="humidity-35"></td>
+    <td id="humidity-36"></td>
+    <td id="humidity-37"></td>
+    <td id="humidity-38"></td>
+    <td id="humidity-39"></td>
+  </tr>
+</tbody>
+</table>
+
+  <!--
+      ・６日目の天気の表とidを設定する(時間のずれではみ出た部分が、エラーに繋がるため)
+      ・その表を非表示にする
+      ・空欄の表の部分を非表示もしくは斜線とかにしたい
+    -->
+  <!--<p>6日目の天気</p>-->
+    <table class="hidden">
+    <tbody>
+      <tr>
+        <td colspan="2">時刻</td>
+        <td id="hour-40"></td>
+        <td id="hour-41"></td>
+        <td id="hour-42"></td>
+        <td id="hour-43"></td>
+        <td id="hour-44"></td>
+        <td id="hour-45"></td>
+        <td id="hour-46"></td>
+        <td id="hour-47"></td>
+      </tr>
+      <tr>
+        <td colspan="2">天気</td>
+        <td><img id="weather-40"></td>
+        <td><img id="weather-41"></td>
+        <td><img id="weather-42"></td>
+        <td><img id="weather-43"></td>
+        <td><img id="weather-44"></td>
+        <td><img id="weather-45"></td>
+        <td><img id="weather-46"></td>
+        <td><img id="weather-47"></td>
+      </tr>
+      <tr>
+        <td colspan="2">気温</td>
+        <td id="temp-40"></td>
+        <td id="temp-41"></td>
+        <td id="temp-42"></td>
+        <td id="temp-43"></td>
+        <td id="temp-44"></td>
+        <td id="temp-45"></td>
+        <td id="temp-46"></td>
+        <td id="temp-47"></td>
+      </tr>
+      <tr>
+        <td colspan="2">最高</td>
+        <td id="high-40"></td>
+        <td id="high-41"></td>
+        <td id="high-42"></td>
+        <td id="high-43"></td>
+        <td id="high-44"></td>
+        <td id="high-45"></td>
+        <td id="high-46"></td>
+        <td id="high-47"></td>
+      </tr>
+      <tr>
+        <td colspan="2">最低</td>
+        <td id="low-40"></td>
+        <td id="low-41"></td>
+        <td id="low-42"></td>
+        <td id="low-43"></td>
+        <td id="low-44"></td>
+        <td id="low-45"></td>
+        <td id="low-46"></td>
+        <td id="low-47"></td>
+      </tr>
+      <tr>
+        <td colspan="2">熱中症</td>
+        <td><img id="icon-40"></td>
+        <td><img id="icon-41"></td>
+        <td><img id="icon-42"></td>
+        <td><img id="icon-43"></td>
+        <td><img id="icon-44"></td>
+        <td><img id="icon-45"></td>
+        <td><img id="icon-46"></td>
+        <td><img id="icon-47"></td>
+      </tr>
+      <tr>
+        <td colspan="2">風向</td>
+        <td id="deg-40"></td>
+        <td id="deg-41"></td>
+        <td id="deg-42"></td>
+        <td id="deg-43"></td>
+        <td id="deg-44"></td>
+        <td id="deg-45"></td>
+        <td id="deg-46"></td>
+        <td id="deg-47"></td>
+      </tr>
+      <tr>
+        <td colspan="2">風速</td>
+        <td id="wind-40"></td>
+        <td id="wind-41"></td>
+        <td id="wind-42"></td>
+        <td id="wind-43"></td>
+        <td id="wind-44"></td>
+        <td id="wind-45"></td>
+        <td id="wind-46"></td>
+        <td id="wind-47"></td>
+      </tr>
+      <tr>
+        <td colspan="2" rowspan="2">湿度</td>
+        <td><img id="humidity-icon-40"></td>
+        <td><img id="humidity-icon-41"></td>
+        <td><img id="humidity-icon-42"></td>
+        <td><img id="humidity-icon-43"></td>
+        <td><img id="humidity-icon-44"></td>
+        <td><img id="humidity-icon-45"></td>
+        <td><img id="humidity-icon-46"></td>
+        <td><img id="humidity-icon-47"></td>
+      </tr>
+      <tr>
+        <td id="humidity-40"></td>
+        <td id="humidity-41"></td>
+        <td id="humidity-42"></td>
+        <td id="humidity-43"></td>
+        <td id="humidity-44"></td>
+        <td id="humidity-45"></td>
+        <td id="humidity-46"></td>
+        <td id="humidity-47"></td>
+      </tr>
+    </tbody>
+    </table>
+
+
+</div>
+
+<footer>
+  <!--見やすいように余白をいれました-->
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,186 @@
+.line{
+  width: 100%;
+  height: 3px;
+  background-color:#267CA7;
+  background-size: cover; /*背景が全体を覆うようにする*/
+  background-position: center; /*画像の中心が真ん中にくる*/
+
+}
+
+header h2{
+position: relative;
+color:#000000;
+font-size: 20px;
+padding: 13px 0;
+text-align: center;
+margin: 1.5em 0;
+  font-family:sans-serif;
+}
+
+header h2:before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 150px;
+  height: 58px;
+  border-radius: 50%;
+  border: 5px solid #267CA7;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+body{
+  margin:0;
+  background-color:#f0f8ff;
+}
+
+.under_delete {
+    text-decoration: none; /*リンクの下線を消す*/
+    color: inherit;/*リンクの色を変えない*/
+}
+nav ul{
+    list-style-type:none;
+    text-align:center;
+}
+nav li{
+    display:inline-block;/*中央に横並びリストにする*/
+    width:150px;
+    text-align:center;
+    border-left:1px solid black;/*線の仕切りを作成*/
+}
+.margin-left{
+  margin-left:300px;
+}
+.margin-left600px{
+  margin-left:600px;
+}
+
+.margin-left-table{
+    margin-left:332px;
+}
+
+.yokonarabi{
+  display:flex;
+}
+
+.box{
+margin-left:32px;
+width:200px;
+height:40px;
+}
+
+.box11{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background:#FFFFFF;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    width:1000px;
+}
+.box11 p {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.submitbox{
+  width:60px;
+  height:40px;
+  background-color:#AFDFE4;
+}
+
+.leftline{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 0.2em 1em;/*上下 左右の余白*/
+  color: black;/*文字色*/
+  font-weight: bold;
+  background: transparent;/*背景透明に*/
+  border-left: solid 5px #267CA7;/*左線*/
+  height:40px;
+
+}
+.leftline h3{
+   line-height:5px;
+}
+.leftline3{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 0.2em 1em;/*上下 左右の余白*/
+  color: black;/*文字色*/
+  font-weight: bold;
+  background: transparent;/*背景透明に*/
+  border-left: solid 5px #267CA7;/*左線*/
+  height:40px;
+  margin-left: -30px;
+
+}
+.leftline3 h3{
+   line-height:5px;
+}
+
+table {
+  background-color: white;
+}
+
+
+table , td, th {
+	border: 1px solid #595959;
+	border-collapse: collapse;
+}
+td, th {
+	padding: 3px;
+	width: 60px;
+	height: 25px;
+  text-align:center;
+}
+th {
+	background: #f0e6cc;
+}
+.even {
+	background: #fbf8f0;
+}
+.odd {
+	background: #fefcf9;
+}
+
+.hidden{
+  display:none;
+}
+
+
+footer{
+margin-top: 100px;
+
+}
+
+
+footer h2{
+position: relative;
+color:#000000;
+font-size: 20px;
+padding: 13px 0;
+text-align: center;
+margin: 1.5em 0;
+  font-family:sans-serif;
+}
+
+footer h2:before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 150px;
+  height: 58px;
+  border-radius: 50%;
+  border: 5px solid #267CA7;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
